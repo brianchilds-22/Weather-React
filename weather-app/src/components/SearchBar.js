@@ -1,8 +1,23 @@
 import React from 'react';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-const SearchBar = () => {
+
+const SearchBar = ({ searchTerm, handleFormSubmit, handleInputChange }) => {
     return (
-        <h2>Im the searchbar</h2>
+        <Form inline onSubmit={handleFormSubmit}>
+            <FormGroup>
+                <Label for="location" hidden>Location</Label>
+                <Input 
+                type="text" 
+                name="location" 
+                id="location" 
+                placeholder="Denver, CO" 
+                onChange={handleInputChange}
+                value={searchTerm}
+                />
+            </FormGroup>
+            <Button>Search</Button>
+        </Form>
     )
 }
 export default SearchBar;
